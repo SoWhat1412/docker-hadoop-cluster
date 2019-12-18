@@ -1,5 +1,5 @@
 0) General notes
-=============
+--------------
 `sowhat/hadoop:sdhadoop` is based on `docker pull kiwenlau/hadoop:1.0`
 
 Each folder `./*/docker/config` are the same, so that hadoop-master, hadoop-slave and hadoop-client all have same setup
