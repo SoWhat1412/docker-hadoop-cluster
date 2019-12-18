@@ -29,7 +29,7 @@ spark 2.0.0
 neo4j 3.5.3
 
 ## hadoop-cluster
-================
+-------------
 Before starting the container, we need our own bridge network
 
     docker network create --driver=bridge sdhadoop
@@ -121,7 +121,7 @@ Test in jupyter (python3 kernel) using
 
 
 ## hadoop-neo4j
-===============
+--------------
 Just normal neo4j, nothing to do with hadoop, from official neo4j:latest. Added initial data, see `load_data.cql`.
 Rerun `build-image.sh` if fail, since method of adding initial data is dodgy.
 
@@ -143,7 +143,7 @@ TODO: mount the neo4j data folder, so that data persist accross containers
 
 
 ## hadoop-client-scala
-======================
+-----------------
 I wanted to stay with python (https://stackoverflow.com/questions/48169520/neo4j-as-data-source-for-pyspark)
 but python graphframe can't import from neo4j (and Mazerunner is way out of date)
 so I have to use scala and neo4j-spark-connector, using scala also allows usage of graphx, scala+spark has better support/docs
@@ -190,7 +190,7 @@ see `hadoop-client-scala/13_spylon_neo4j_graphx_diff_label.ipynb` for more notes
 
 
 ## hadoop-client-scala-prod
-===========================
+--------------
 Note, bigdata refers to companies bigdata cluster; 10.100.34.19 is remote server (behind access gateway), connected to bigdata cluster.
 We log into 10.100.34.19, and clone this folder into it.
 
