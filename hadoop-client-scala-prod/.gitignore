@@ -1,0 +1,11 @@
+.ipynb_checkpoints/
+nohup.out
+derby.log
+metastore_db/
+*.jar.bkup
+*.jar
+*.tar
+*.tar.gz
+neo4j-spark-connector/target
+pickles/
+*.log

@@ -1,0 +1,9 @@
+{
+  "load_extensions": {
+    "varInspector/main": true,
+    "codefolding/main": true,
+    "freeze/main": true,
+    "execute_time/ExecuteTime": true
+  },
+  "codefolding_hotkey": "alt-w"
+}

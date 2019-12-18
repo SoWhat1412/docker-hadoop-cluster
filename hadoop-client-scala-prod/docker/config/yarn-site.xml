@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+<configuration>
+<property>  
+<name>yarn.resourcemanager.ha.enabled</name>  
+<value>true</value>  
+</property>
+<property>  
+<name>yarn.resourcemanager.cluster-id</name>  
+<value>yarncluster</value>  
+</property>  
+<property>  
+<name>yarn.resourcemanager.ha.rm-ids</name>  
+<value>rm1,rm2</value>  
+</property>  
+<property>  
+<name>yarn.resourcemanager.hostname.rm1</name>  
+<value>10.100.12.12</value>  
+</property>  
+<property>  
+<name>yarn.resourcemanager.hostname.rm2</name>  
+<value>10.100.12.31</value>  
+</property>  
+<property> 
+<name>yarn.resourcemanager.recovery.enabled</name> 
+<value>false</value>  
+</property>
+<property>  
+<name>yarn.resourcemanager.zk-address</name>  
+<value>bigdata-006:2181,bigdata-008:2181,bigdata-010:2181</value>  
+</property>  
+<property>
+<name>yarn.nodemanager.aux-services</name>
+<value>mapreduce_shuffle</value>
+</property>
+<property>
+<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+<property>
+<name>yarn.resourcemanager.address.rm1</name>
+<value>bigdata-001:8032</value>
+</property>
+<property>
+<name>yarn.resourcemanager.address.rm2</name>
+<value>bigdata-002:8032</value>
+</property>
+<property>
+<name>yarn.resourcemanager.scheduler.address.rm1</name>
+<value>bigdata-001:8030</value>
+</property>
+<property>
+<name>yarn.resourcemanager.scheduler.address.rm2</name>
+<value>bigdata-002:8030</value>
+</property>
+<property>
+<name>yarn.resourcemanager.resource-tracker.address.rm1</name>
+<value>bigdata-001:8035</value>
+</property>
+<property>
+<name>yarn.resourcemanager.resource-tracker.address.rm2</name>
+<value>bigdata-002:8035</value>
+</property>
+<property>
+<name>yarn.resourcemanager.admin.address.rm1</name>
+<value>bigdata-001:8033</value>
+</property>
+<property>
+<name>yarn.resourcemanager.admin.address.rm2</name>
+<value>bigdata-002:8033</value>
+</property>
+<property>
+<name>yarn.resourcemanager.webapp.address.rm1</name>
+<value>bigdata-001:8088</value>
+</property>
+<property>
+<name>yarn.resourcemanager.webapp.address.rm2</name>
+<value>bigdata-002:8088</value>
+</property>
+<!--
+<property>
+     <name>yarn.resourcemanager.scheduler.class</name>
+     <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+</property> 
+
+-->
+
+    <property>
+        <name>yarn.resourcemanager.scheduler.class</name> 
+        <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler</value>
+        <description> 公平配置队列配置在fair-scheduler</description>
+    </property>
+    <property>
+        <name>yarn.scheduler.fair.allocation.file</name> 
+        <value>/opt/apps/hadoop-2.7.2/etc/hadoop/fair-scheduler.xml</value>
+        <description> 公平配置文件路径</description>
+    </property>
+    <property>
+        <name>yarn.scheduler.fair.preemption</name> 
+        <value>true</value>
+        <description>是否支持抢占,默认值为false</description>
+    </property>
+    <property>
+        <name>yarn.scheduler.fair.sizebasedweight</name> 
+        <value>true</value>
+        <description>是否启用按应用程序资源需求分配资源,默认值为false即采用公平轮询的方法分配资源</description>
+    </property>
+    <property>
+        <name>yarn.scheduler.increment-allocation-mb</name> 
+        <value>1024</value>
+        <description>仅fair有效,内存规整化单位,墨认值1024.(示例一个container请求1.5G,则调度器规整化为2G)</description>
+    </property>
+
+ <property>
+      <name>yarn.nodemanager.resource.memory-mb</name>
+      <value>153600</value>
+  </property>
+  <property>
+     <name>yarn.scheduler.minimum-allocation-vcores</name>
+     <value>1</value>
+  </property>
+  <property>
+     <name>yarn.scheduler.maximum-allocation-vcores</name>
+     <value>36</value>
+  </property>
+  <property>
+     <name>yarn.nodemanager.resource.cpu-vcores</name>
+     <value>36</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.resource.percentage-physical-cpu-limit</name>
+    <value>90</value>
+    <source>yarn-default.xml</source>
+  </property>
+
+  <property>
+ <name>yarn.scheduler.minimum-allocation-mb</name>
+ <value>3072</value>
+ </property>
+ <property>
+      <name>yarn.scheduler.maximum-allocation-mb</name>
+     <value>153600</value>
+</property>
+<property>
+    <name>yarn.app.mapreduce.am.command-opts</name>
+    <value>-Xmx1024m</value>
+ </property>
+
+
+<!-- <property>  
+     <name>yarn.application.classpath</name>  
+      <value>$HADOOP_HOME/share/hadoop/common/*,  
+             $HADOOP_HOME/share/hadoop/common/lib/*,  
+             $HADOOP_HOME/share/hadoop/hdfs/*,  
+             $HADOOP_HOME/share/hadoop/hdfs/lib/*,  
+             $HADOOP_HOME/share/hadoop/yarn/*,  
+             $HADOOP_HOME/share/hadoop/yarn/lib/*  
+   </value>  
+</property>
+<property>
+<name>yarn.nodemanager.aux-services.spark_shuffle.class</name>
+<value>org.apache.spark.network.yarn.YarnShuffleService</value>
+</property>
+<property>
+<name>spark.shuffle.service.port</name>
+<value>7337</value>
+</property> 
+<property>
+<name>yarn.nodemanager.aux-services</name>
+<value>mapreduce_shuffle,spark_shuffle</value>
+</property>-->
+<property>
+　　<name>yarn.nodemanager.vmem-check-enabled</name>
+　　<value>false</value>
+</property>
+<property>
+    <name>yarn.nodemanager.pmem-check-enabled</name>
+    <value>false</value>
+</property>
+<property>
+    <name>yarn.scheduler.fair.max.assign</name>
+    <value>1</value>
+    <description>让各个节点任务数目尽可能均衡</description>
+</property>
+<property>
+    <name>yarn.scheduler.fair.allow-undeclared-pools</name>
+    <value>false</value>
+    <description>指定的队列不存在时，Fair Scheduler会自动创建一个新队列而不是报错</description>
+</property>
+<property>
+    <name>yarn.scheduler.fair.user-as-default-queue</name>
+    <value>false</value>
+</property>
+<property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+</property>
+<property>
+   <description>Enable RM to recover state after starting. If true, then
+   yarn.resourcemanager.store.class must be specified</description>
+   <name>yarn.resourcemanager.recovery.enabled</name>
+   <value>true</value>
+</property>
+<property>
+    <description>The class to use as the persistent store.</description>
+    <name>yarn.resourcemanager.store.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore</value>
+</property>
+<property>
+   <description>Comma separated list of Host:Port pairs. Each corresponds to a ZooKeeper server
+   (e.g. "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002") to be used by the RM for storing RM state.
+   This must be supplied when using org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore
+   as the value for yarn.resourcemanager.store.class</description>
+   <name>yarn.resourcemanager.zk-address</name>
+   <value>bigdata-006:2181,bigdata-008:2181,bigdata-010:2181</value>
+</property>
+<property>
+  <name>yarn.resourcemanager.am.max-attempts</name>
+  <value>4</value>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.max-disk-utilization-per-disk-percentage</name>
+  <value>94</value>
+</property>
+
+</configuration>

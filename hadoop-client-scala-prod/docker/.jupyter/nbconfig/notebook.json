@@ -1,0 +1,11 @@
+{
+  "load_extensions": {
+    "varInspector/main": true,
+    "codefolding/main": true,
+    "freeze/main": true,
+    "execute_time/ExecuteTime": true,
+    "tree-filter/index": true,
+    "toc2/main": true
+  },
+  "codefolding_hotkey": "alt-w"
+}

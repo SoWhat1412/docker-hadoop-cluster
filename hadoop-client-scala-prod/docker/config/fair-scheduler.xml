@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<allocations>
+  <userMaxAppsDefault>100</userMaxAppsDefault>
+  <defaultQueueSchedulingPolicy>fair</defaultQueueSchedulingPolicy>
+
+
+  <queue name="root">
+    <aclSubmitApps> </aclSubmitApps>
+    <aclAdministerApps> </aclAdministerApps>
+    <!--
+    <queue name="default">
+      <minResources>0mb,0vcores</minResources>
+      <maxResources>0mb,0vcores</maxResources>
+      <maxRunningApps>0</maxRunningApps>
+      <weight>0</weight>
+    </queue>
+    -->
+    <queue name="sqoop">
+      <minResources>20480mb,10vcores</minResources>
+      <maxResources>204800mb,200vcores</maxResources>
+      <maxRunningApps>100</maxRunningApps>
+      <schedulingMode>fair</schedulingMode>
+      <weight>2</weight>
+      <aclAdministerApps>*</aclAdministerApps>
+      <aclSubmitApps>*</aclSubmitApps>
+    </queue>
+
+    <queue name="dlr_hue">
+      <minResources>20480mb,10vcores</minResources>
+      <maxResources>61440mb,100vcores</maxResources>
+      <maxRunningApps>10</maxRunningApps>
+      <schedulingMode>fair</schedulingMode>
+      <weight>1</weight>
+      <aclAdministerApps>dlr_hue</aclAdministerApps>
+      <aclSubmitApps>dlr_hue</aclSubmitApps>
+    </queue>
+    <queue name="etl">
+      <minResources>20480mb,10vcores</minResources>
+      <!--
+      <maxResources>307200mb,150vcores</maxResources>
+      -->
+      <maxResources>409600mb,300vcores</maxResources>
+      <maxRunningApps>100</maxRunningApps>
+      <schedulingMode>fair</schedulingMode>
+      <weight>3</weight>
+      <aclAdministerApps>*</aclAdministerApps>
+      <aclSubmitApps>*</aclSubmitApps>
+    </queue>
+
+    <queue name="yjy">
+      <minResources>20480mb,60vcores</minResources>
+      <maxResources>604800mb,200vcores</maxResources>
+      <maxRunningApps>20</maxRunningApps>
+      <schedulingMode>fair</schedulingMode>
+      <weight>3</weight>
+      <aclAdministerApps>*</aclAdministerApps>
+      <aclSubmitApps>*</aclSubmitApps>
+    </queue>
+      <queue name="kg">
+      <minResources>20480mb,50vcores</minResources>
+      <maxResources>604800mb,300vcores</maxResources>
+      <maxRunningApps>20</maxRunningApps>
+      <schedulingMode>fair</schedulingMode>
+      <weight>3</weight>
+      <aclAdministerApps>*</aclAdministerApps>
+      <aclSubmitApps>*</aclSubmitApps>
+    </queue>
+
+    <queue name="yy">
+      <minResources>20480mb,50vcores</minResources>
+      <maxResources>604800mb,300vcores</maxResources>
+      <maxRunningApps>20</maxRunningApps>
+      <schedulingMode>fair</schedulingMode>
+      <weight>3</weight>
+      <aclAdministerApps>*</aclAdministerApps>
+      <aclSubmitApps>*</aclSubmitApps>
+    </queue>
+    <queue name="risk">
+      <minResources>20480mb,10vcores</minResources>
+      <maxResources>61440mb,200vcores</maxResources>
+      <maxRunningApps>10</maxRunningApps>
+      <schedulingMode>fair</schedulingMode>
+      <weight>1</weight>
+      <aclAdministerApps>risk</aclAdministerApps>
+      <aclSubmitApps>risk</aclSubmitApps>
+    </queue>
+  </queue>
+<!--  </queue>me="hyd_dw">
+     <minResources>20480mb,10vcores</minResources>
+     <maxResources>30720mb,50vcores</maxResources>
+     <maxRunningApps>10</maxRunningApps>
+     <schedulingMode>fair</schedulingMode>
+     <weight>1</weight>
+     <aclAdministerApps>hyd_dw</aclAdministerApps>
+     <aclSubmitApps>hyd_dw</aclSubmitApps>
+  </queue>
+-->
+<queuePlacementPolicy>
+    <rule name="specified" create="false"/>
+    <!--
+    <rule name="primaryGroup" create="false"/>
+    <rule name="nestedUserQueue">
+      <rule name="secondaryGroupExistingQueue" create="false"/>
+    </rule>
+    <rule name="default" queue="default"/>
+    -->
+    <rule name="reject"/>
+  </queuePlacementPolicy>
+</allocations>

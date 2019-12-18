@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/opt/conda/share/jupyter/kernels/apache_toree_scala/bin/run.sh",
+    "--profile",
+    "{connection_file}"
+  ],
+  "env": {
+    "DEFAULT_INTERPRETER": "Scala",
+    "SPARK_OPTS": "--master yarn --deploy-mode client",
+    "__TOREE_SPARK_OPTS__":"",
+    "__TOREE_OPTS__": "--nosparkcontext",
+    "SPARK_HOME": "/usr/local/spark",
+    "HADOOP_HOME": "/usr/local/hadoop",
+    "HADOOP_CONF_DIR": "/usr/local/hadoop/etc/hadoop",
+    "PYTHONPATH": "/usr/local/spark/python:/usr/local/spark/python/lib/py4j-0.9-src.zip",
+    "PYTHON_EXEC": "python"
+  },
+  "display_name": "Toree - Scala (remote)",
+  "language": "scala"
+}
+
