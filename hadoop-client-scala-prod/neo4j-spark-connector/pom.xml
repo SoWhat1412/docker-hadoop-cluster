@@ -27,7 +27,7 @@
     <properties>
         <neo4j.version>3.0.9</neo4j.version>
         <driver.version>1.2.0</driver.version>
-        <spark.version>1.6.1</spark.version>
+        <spark.version>2.2.3</spark.version>
         <graphframes.version>0.5.0-spark1.6-s_${scala.version.suffix}</graphframes.version>
     </properties>
 
